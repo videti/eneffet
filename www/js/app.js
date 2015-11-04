@@ -48,40 +48,58 @@ var launcher = angular.module('starter', ['ionic', 'starter.controllers', 'start
 
     .state('tab.dashboard', {
       url: '/dashboard',
-      templateUrl: 'tpl/dashboard.html',
-      controller: 'DashboardCtrl'
+        views:{
+          'tab-dashboard':{
+            templateUrl: 'tpl/dashboard.html',
+            controller: 'DashboardCtrl'
+          }
+        }
+
     })
 
     .state('tab.announceDetails', {
       url: '/details/:announceDetailsId',
-      templateUrl: 'tpl/announce-details.html',
-      controller: 'AnnounceDetailsCtrl'
+        views:{
+          'tab-announce-details':{
+            templateUrl: 'tpl/announce-details.html',
+            controller: 'AnnounceDetailsCtrl'
+          }
+        }
     })
 
     .state('tab.localisation', {
       url: '/localisation',
-      templateUrl: 'tpl/localisation.html',
-      controller: 'LocalisationCtrl'
-
+        views:{
+          'tab-localisation':{
+            templateUrl: 'tpl/localisation.html',
+            controller: 'LocalisationCtrl'
+          }
+        }
     })
 
     .state('tab.profile', {
     url: '/profile',
-    templateUrl: 'tpl/profile.html',
-    controller: 'ProfileCtrl'
+        views:{
+          'tab-profile':{
+            templateUrl: 'tpl/profile.html',
+            controller: 'ProfileCtrl'
+          }
+        }
     })
 
     .state('tab.favorite', {
       url: '/favorite',
-      templateUrl: 'tpl/favorite.html',
-      controller: 'FavoriteCtrl'
-
+        views:{
+          'tab-favorite':{
+            templateUrl: 'tpl/favorite.html',
+            controller: 'FavoriteCtrl'
+          }
+        }
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('login');
 
 });
 
 
-angular.module('starter.controllers', []);
