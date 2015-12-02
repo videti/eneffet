@@ -8,11 +8,21 @@
 var launcher = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
-
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    var leftMenuEl = document.getElementById('menu-left');
+    var leftMenu = new ionic.views.SideMenu({
+      el: leftMenuEl,
+      width: 270
+    });
+    var sm = new ionic.controllers.SideMenuController({
+      content: content,
+      left: leftMenu,
+      right: rightMenu
+    });
+
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -60,14 +70,13 @@ var launcher = angular.module('starter', ['ionic', 'starter.controllers', 'start
     .state('tab.announceDetails', {
       url: '/details/:announceDetailsId',
         views:{
-          'tab-announce-details':{
+          'tab-dashboard':{
             templateUrl: 'tpl/announce-details.html',
             controller: 'AnnounceDetailsCtrl'
           }
         }
     })
-
-    .state('tab.localisation', {
+      .state('tab.localisation', {
       url: '/localisation',
         views:{
           'tab-localisation':{
