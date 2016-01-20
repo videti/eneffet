@@ -1,15 +1,18 @@
-launcher.controller('ProfileCtrl', function($scope) {
-
-      $scope.takePicture =function() {
-        navigator.camera.getPicture(function(imageURI) {
-
-          // imageURI is the URL of the image that we can use for
-          // an <img> element or backgroundImage.
-
-        }, function(err) {
-
-          // Ruh-roh, something bad happened
-
-        }, cameraOptions);
-      }
+launcher.controller('ProfileCtrl', function($scope, $localStorage) {
+    $scope.update_profile = {};
+    $scope.update_profile.name = $localStorage.informations.name;
+    $scope.update_profile.first_name = $localStorage.informations.first_name;
+    $scope.update_profile.email = $localStorage.informations.email;
+    $scope.update_profile.address = $localStorage.informations.address;
+    $scope.update_profile.number = $localStorage.informations.number;
+    $scope.updateInformations= function(update_profile){
+        $localStorage.informations = {};
+        $localStorage.informations.name = update_profile.name;
+        $localStorage.informations.first_name = update_profile.first_name;
+        $localStorage.informations.email = update_profile.email;
+        $localStorage.informations.address = update_profile.address;
+        $localStorage.informations.number = update_profile.number;
+        console.log($localStorage);
+    }
+    console.log($localStorage);
 })

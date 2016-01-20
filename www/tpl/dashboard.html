@@ -1,22 +1,30 @@
 
-
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
 <ion-view title="Accueil" name="dashboard-view">
     <ion-nav-buttons side="right">
-
-        <div class="button button-clear"><span class="icon ion-close"></span></div>
+        <button class="button button-icon icon ion-search" ng-click="search()"></button>
     </ion-nav-buttons>
 
     <ion-content class="padding">
-        <div class="row" ng-repeat="announce in announces ">
-            <div class="col">
-                <div class="item item-button-right">
-                    <b>Job title :</b><p>{{announce.jobtitle}}</p>
-                    <b>Company :</b><p>{{announce.company}}</p>
-                    <b>City :</b> <p>{{announce.city}}</p>
-                    <a class="button button-positive"ui-sref="tab.announceDetails({announceDetailsId: announce.jobkey})")><i class="icon ion-ios7-telephone"></i> Details</a>
-                </div>
-            </div>
 
-        </div>
+        <ul class="timeline">
+
+            <!-- Item 1 -->
+            <li ng-repeat="announce in announces ">
+
+                <div ng-class-odd="'direction-r'" ng-class-even="'direction-l'"  >
+                    <div ui-sref="tab.announceDetails({announceDetailsId: announce.jobkey})">
+                        <span class="flag">{{announce.jobtitle}}
+                        </span>
+                        <span class="time-wrapper"><span class="time">Mis en ligne depuis {{announce.formattedRelativeTime}}</span></span>
+                    </div>
+
+                    <div class="desc">
+                        <a ng-click="AddToFavorite(announce.jobkey)" class="button button-icon icon" ng-class="item.checked ? 'ion-ios-heart' : 'ion-ios-heart-outline'"></a>
+
+                        Situé à {{announce.city}} qui est a <b>{{announce.distance}}</b> km de vous </div>
+                </div>
+            </li>
+        </ul>
     </ion-content>
 </ion-view>

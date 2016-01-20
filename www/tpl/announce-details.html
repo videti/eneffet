@@ -1,5 +1,21 @@
-<ion-view title="Announce Detail" name="announce-details-view">
+<ion-view title="Détails de l'annonce" name="announce-details-view">
   <ion-content class="padding">
 
+    <ul class="timeline_announce">
+      <li ng-repeat="announce in announces ">
+        <div class="timeline-badge"><a ui-sref="tab.localisation"><i class="ion-android-compass"></i></a></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">{{announce.jobtitle}} chez <b>{{announce.company}}</b> situé à {{announce.city}} </h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Mis en ligne {{announce.formattedRelativeTime}}</small></p>
+          </div>
+          <div class="timeline-body">
+            <p>Déscription : </br>
+
+              <i>{{announce.snippet}}</i></p>
+          </div>
+        </div>
+      </li>
+    </ul>
   </ion-content>
 </ion-view>

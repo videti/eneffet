@@ -1,9 +1,23 @@
 <ion-view view-title="Mes annonces">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Favorite
-    </ion-toggle>
-    </ion-list>
+    <ul class="timeline">
+
+      <!-- Item 1 -->
+      <li ng-repeat="announce in announces ">
+
+        <div ng-class-odd="'direction-r'" ng-class-even="'direction-l'"  >
+          <div ui-sref="tab.announceDetails({announceDetailsId: announce.jobkey})">
+                        <span class="flag">{{announce.jobtitle}}
+                        </span>
+            <span class="time-wrapper"><span class="time">Mis en ligne depuis {{announce.formattedRelativeTime}}</span></span>
+          </div>
+
+          <div class="desc">
+            <a ng-click="AddToFavorite(announce.jobkey)" class="button button-icon icon" ng-class="item.checked ? 'ion-ios-heart' : 'ion-ios-heart-outline'"></a>
+
+            Situé à {{announce.city}} qui est a <b>{{announce.distance}}</b> km de vous </div>
+        </div>
+      </li>
+    </ul>
   </ion-content>
 </ion-view>

@@ -1,9 +1,29 @@
-<ion-view view-title="Profile" class="">
-  <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
-  </ion-content>
+<ion-view title="Profile">
+    <ion-content class="padding">
+        <form role="form" name="profileForm">
+            <label class="item item-input">
+                <span class="input-label">Nom</span>
+                <input type="text" ng-model="update_profile.name" value="{{update_profile.name}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Prénom</span>
+                <input type="text" ng-model="update_profile.first_name">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Adresse</span>
+                <input type="text" ng-model="update_profile.address">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Numéro de téléphone</span>
+                <input type="text" ng-model="update_profile.number">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="email" ng-model="update_profile.email">
+            </label>
+            <button ng-click="updateInformations(update_profile)"> Mettre à jour</button>
+        </form>
+    </ion-content>
 </ion-view>
+
+

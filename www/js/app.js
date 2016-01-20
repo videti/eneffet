@@ -5,11 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var launcher = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var launcher = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngStorage'])
 
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     var leftMenuEl = document.getElementById('menu-left');
@@ -79,7 +80,7 @@ var launcher = angular.module('starter', ['ionic', 'starter.controllers', 'start
       .state('tab.localisation', {
       url: '/localisation',
         views:{
-          'tab-localisation':{
+          'tab-dashboard':{
             templateUrl: 'tpl/localisation.html',
             controller: 'LocalisationCtrl'
           }
